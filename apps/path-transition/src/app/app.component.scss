@@ -1,0 +1,20 @@
+#top_menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 56px;
+  background: #1c1c1c;
+  color: ghostwhite;
+  display: flex;
+  gap: .5em;
+  align-items: center;
+  padding: 1rem;
+  z-index: 9999999999999;
+
+  .active {
+    border: 2px solid rgba(46, 12, 197, 0.6);
+    background: rgb(29, 8, 133);
+    color: white;
+  }
+}

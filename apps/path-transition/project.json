@@ -1,0 +1,96 @@
+{
+  "name": "path-transition",
+  "projectType": "application",
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "sourceRoot": "apps/path-transition/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "outputPath": "dist/apps/path-transition",
+        "index": "apps/path-transition/src/index.html",
+        "main": "apps/path-transition/src/main.ts",
+        "polyfills": "apps/path-transition/src/polyfills.ts",
+        "tsConfig": "apps/path-transition/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/path-transition/src/favicon.ico",
+          "apps/path-transition/src/assets"
+        ],
+        "styles": ["apps/path-transition/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/path-transition/src/environments/environment.ts",
+              "with": "apps/path-transition/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "path-transition:build:production"
+        },
+        "development": {
+          "browserTarget": "path-transition:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "path-transition:build"
+      }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "apps/path-transition/src/test.ts",
+        "polyfills": "apps/path-transition/src/polyfills.ts",
+        "tsConfig": "apps/path-transition/tsconfig.spec.json",
+        "karmaConfig": "apps/path-transition/karma.conf.js",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/path-transition/src/favicon.ico",
+          "apps/path-transition/src/assets"
+        ],
+        "styles": ["apps/path-transition/src/styles.scss"],
+        "scripts": []
+      }
+    }
+  }
+}
